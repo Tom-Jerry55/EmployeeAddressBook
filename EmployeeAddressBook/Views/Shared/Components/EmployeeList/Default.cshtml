@@ -1,0 +1,17 @@
+﻿@model IEnumerable<EmployeeAddressBook.Models.Employee>
+
+<div>
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("GetEmployee", "Employee",new {id=item.ID })">
+                <li class="list-group-item" onclick="result(@item.ID)">
+                    <h2>@item.Name</h2>
+                    <p class="appended-email">@item.Email</p>
+                    <p>@item.Mobile</p>
+                </li>
+                </a>
+                }
+        </ul>
+</div>
+

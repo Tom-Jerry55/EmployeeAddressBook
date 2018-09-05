@@ -1,0 +1,71 @@
+﻿@model EmployeeAddressBook.Models.Employee
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+<h2>Employees</h2>
+
+<div class="main-container">
+    <div class="fluid-container col-sm-3 ">
+        @await Component.InvokeAsync("EmployeeList", new { maxPriority = 4, isDone = true })
+    </div>
+    <div class="col-md-4 fluid-container">
+        @using (Html.BeginForm("SaveEmployeeDetails", "Employee", FormMethod.Post))
+        {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.LabelFor(m => Model.Name)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Name)
+            </dd>
+            <dt>
+                @Html.LabelFor(m => Model.Email)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Email)
+            </dd>
+            <dt>
+                @Html.LabelFor(m => Model.Mobile)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Mobile)
+            </dd>
+            <dt>
+                @Html.LabelFor(m => Model.Landline)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Landline)
+            </dd>
+            <dt>
+                @Html.LabelFor(m => Model.Website)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Website)
+            </dd>
+            <dt>
+                @Html.LabelFor(m => Model.Address)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Address)
+            </dd>
+
+            <dt>
+                @Html.Label("Department")
+            </dt>
+            <dd>
+                @Html.DropDownListFor(m => Model.DeptId, (IEnumerable<SelectListItem>)ViewData["Departments"])
+            </dd>
+            <dt>
+                @Html.HiddenFor(m => Model.ID)
+            </dt>
+
+
+        </dl>
+            <input type="submit" value="Submit" class="submit" />
+        }
+
+    </div>
+
+</div>

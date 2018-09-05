@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Employees</h2>
+
+<div class="main-container">
+    <div class="fluid-container col-sm-3 ">
+        @await Component.InvokeAsync("EmployeeList", new { maxPriority = 4, isDone = true })
+    </div>
+   
+</div>

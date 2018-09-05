@@ -1,0 +1,63 @@
+﻿@model EmployeeAddressBook.Models.Employee
+
+@{
+    ViewData["Title"] = "GetEmployee";
+}
+
+<h2>Employees</h2>
+
+<div class="main-container">
+    <div class="fluid-container col-sm-3 ">
+        @await Component.InvokeAsync("EmployeeList", new { maxPriority = 4, isDone = true })
+    </div>
+    <div class="fluid-container col-sm-3 ">
+        <div>
+            <h4> @Html.DisplayFor(model => model.Name)</h4>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Mobile)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Landline)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Landline)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Website)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Website)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Department")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Dept.Name)
+                </dd>
+            </dl>
+
+            <div>
+                @Html.ActionLink("Edit", "EditForm", new { id = Model.ID }) 
+                <span>|</span>
+                @Html.ActionLink("Delete", "DeleteEmployee", new { id = Model.ID })
+            </div>
+        </div>
+    </div>
+    </div>
